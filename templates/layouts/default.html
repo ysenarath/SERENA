@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="SERENA">
+    <meta name="author" content="Rafeef, Hiba, Yasas">
+    <link rel="icon" href="{{ url_for('static', filename='favicons/favicon.ico') }}">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='packages/bulma/css/bulma.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='packages/fontawesome/css/all.min.css') }}">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/base.css') }}">
+</head>
+<body>
+{% include "_navbar.html" ignore missing %}
+{% block body %}{% endblock %}
+{% include "_footer.html" ignore missing %}
+<script src="{{ url_for('static', filename='assets/js/navbar.js') }}"></script>
+</body>
+</html>

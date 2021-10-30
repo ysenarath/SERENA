@@ -1,0 +1,17 @@
+<nav class="navbar is-accent" role="navigation" aria-label="main navigation">
+    <div class="container is-max-desktop px-3">
+        <div class="navbar-brand">
+            <a class="navbar-item is-accent-text" href="{{ url_for('index') }}">
+                {{ title }}
+            </a>
+            {# navbar burger #}
+            <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navMenu" class="navbar-menu">
+        </div>
+    </div>
+</nav>
