@@ -3,15 +3,9 @@ html, body {
     width: 100%;
 }
 
-@media only screen and (min-width: 768px) {
-    .chat-max-width {
-        max-width: 768px !important;
-        margin: 0;
-    }
-}
-
-.is-fullheight-with-navbar {
-    min-height: calc(100vh - 3.25rem);
+.chat-history {
+    max-height: calc(100vh - 6.5rem);
+    overflow-x: hidden;
 }
 
 .is-accent {
