@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="overflow-y: hidden;">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,6 +9,9 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='packages/bulma/css/bulma.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='packages/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='packages/unpoly/unpoly.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='packages/simplebar/simplebar.css') }}">
+    <script src="{{ url_for('static', filename='packages/unpoly/unpoly.min.js') }}"></script>
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/base.css') }}">
 </head>
@@ -17,5 +20,6 @@
 {% block body %}{% endblock %}
 {% include "_footer.html" ignore missing %}
 <script src="{{ url_for('static', filename='assets/js/navbar.js') }}"></script>
+<script src="{{ url_for('static', filename='packages/simplebar/simplebar.min.js') }}"></script>
 </body>
 </html>
