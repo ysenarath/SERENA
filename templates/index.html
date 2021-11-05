@@ -6,19 +6,10 @@
             <div class="container is-max-desktop has-background-light">
                 <div id="chatHistory" class="chat-history">
                     {% for chat in history %}
-                        {% set input = chat['input'] %}
-                        <div class="columns is-justify-content-end">
+                        <div class="columns {% if chat['author'] == 'user' %}is-justify-content-end{% endif %}">
                             <div class="column is-two-thirds">
                                 <div class="box m-3">
-                                    <p>{{ input }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        {% set output = chat['output'] %}
-                        <div class="columns">
-                            <div class="column is-two-thirds">
-                                <div class="box m-3">
-                                    <p>{{ output['text'] }}</p>
+                                    <p>{{ chat['text'] }}</p>
                                 </div>
                             </div>
                         </div>

@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request, session
 
 from serena import chat
+from serena.chat import elements as el
 from serena.config import config
 
 TEMPLATE_FOLDER = config['flask']['template_folder']
@@ -26,10 +27,12 @@ def index():
     history = status['__meta__']['history']
     if request.method == 'POST':
         input = request.form.get('input', None)
+        input = el.message(input, author='user')
+        history.append(input)
         # process input and get output {
         output, status = chat.process_input(input, status)
         # } update values {
-        history.append({'input': input, 'output': output})
+        history.append(output)
         status['__meta__']['history'] = history
         # } update session values {
         session['status'] = status
