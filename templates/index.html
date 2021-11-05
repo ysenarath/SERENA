@@ -4,7 +4,7 @@
     <section class="hero is-fullheight-with-navbar has-background-white">
         <div class="hero-body p-0">
             <div class="container is-max-desktop has-background-light">
-                <div class="chat-history" data-simplebar>
+                <div id="chatHistory" class="chat-history">
                     {% for chat in history %}
                         {% set input = chat['input'] %}
                         <div class="columns is-justify-content-end">
@@ -42,5 +42,18 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script>
+        up.compiler('.chat-history', function (element) {
+            const simpleBar = new SimpleBar(document.getElementById('chatHistory'));
+            const scrollElement = simpleBar.getScrollElement();
+            if (scrollElement !== null) {
+                scrollElement.scrollTop = scrollElement.scrollHeight;
+            }
+        });
+    </script>
 {% endblock %}
 
