@@ -17,7 +17,6 @@ app.secret_key = SECRET_KEY
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    history = []
     # load status {
     if 'status' in session:
         status = session['status']
@@ -27,14 +26,15 @@ def index():
     history = status['__meta__']['history']
     if request.method == 'POST':
         input = request.form.get('input', None)
-        input = el.message(input, author='user')
-        history.append(input)
-        # process input and get output {
-        output, status = chat.process_input(input, status)
-        # } update values {
-        history.append(output)
-        status['__meta__']['history'] = history
-        # } update session values {
-        session['status'] = status
-        # }
+        if input is not None and len(input.strip()) != 0:
+            input = el.message(input, author='user')
+            history.append(input)
+            # process input and get output {
+            output, status = chat.process_input(input, status)
+            # } update values {
+            history.append(output)
+            status['__meta__']['history'] = history
+            # } update session values {
+            session['status'] = status
+            # }
     return render_template('index.html', title='SERENA', history=history)
