@@ -5,11 +5,16 @@
         <div class="hero-body p-0">
             <div class="container is-max-desktop has-background-light">
                 <div id="chatHistory" class="chat-history">
-                    {% for chat in history %}
-                        <div class="columns {% if chat['author'] == 'user' %}is-justify-content-end{% endif %}">
-                            <div class="column is-two-thirds">
-                                <div class="box m-3">
-                                    <p>{{ chat['text'] }}</p>
+                    {% for message in history %}
+                        <div class="columns {% if message['author'] == 'user' %}is-justify-content-end{% endif %}">
+                            <div class="column is-two-thirds mx-3">
+                                <div class="box">
+                                    <p>{{ message['text'] }}</p>
+                                </div>
+                                <div class="buttons">
+                                    {% for s in message['suggestions'] %}
+                                        <button class="button is-link is-rounded">{{ s }}</button>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>

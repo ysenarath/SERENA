@@ -3,5 +3,5 @@ from serena.chat import elements as el
 
 def process_input(input, status):
     input_text = input['text']
-    output = el.message(text='User Says: {}'.format(input_text))
+    output = el.message(text='User Says: {}'.format(input_text), suggestions=['Yes', 'No'])
     return output, status
