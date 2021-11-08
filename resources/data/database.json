@@ -1,0 +1,182 @@
+[
+	{
+		'question': 'A collection of interrelated records is called',
+		'options': [
+			{'option1': 'Database', 'is_correct': 'True'},
+			{'option2': 'Spreadsheet', 'is_correct': 'False'},
+			{'option3': 'Management information system', 'is_correct': 'False'},
+			{'option4': 'Text file', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'The method of file organization in which data records in a file are arranged in a specified order according to key field is known as the',
+		'options': [
+			{'option1': 'Sequential access method', 'is_correct': 'True'},
+			{'option2': 'Queuing method', 'is_correct': 'False'},
+			{'option3': 'Predetermined method', 'is_correct': 'False'},
+			{'option4': 'Direct access method', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'Unlike filters queries can be saved as in a database',
+		'options': [
+			{'option1': 'Database', 'is_correct': 'False'},
+			{'option2': 'Filters', 'is_correct': 'False'},
+			{'option3': 'Objects', 'is_correct': 'True'},
+			{'option4': 'Any of the above', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'External database is',
+		'options': [
+			{'option1': 'Database created using DBMS package', 'is_correct': 'True'},
+			{'option2': 'Database created in MS-Word', 'is_correct': 'False'},
+			{'option3': 'Database created in EXCEL', 'is_correct': 'False'},
+			{'option4': 'All of the above', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'ROLLBACK in a database is ____ statement.',
+		'options': [
+			{'option1': 'DDL', 'is_correct': 'False'},
+			{'option2': 'DML', 'is_correct': 'False'},
+			{'option3': 'DCL', 'is_correct': 'False'},
+			{'option4': 'TCL', 'is_correct': 'True'}
+		]
+	},
+	{
+		'question': 'A network schema',
+		'options': [
+			{'option1': 'stores data in tables', 'is_correct': 'False'},
+			{'option2': 'restricts the structure to a one-to-many relationship', 'is_correct': 'False'},
+			{'option3': 'permits many-to-many relationships', 'is_correct': 'True'},
+			{'option4': 'none of these', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'Report generators are used to',
+		'options': [
+			{'option1': 'Store data input by a user', 'is_correct': 'False'},
+			{'option2': 'Retrieve information from files', 'is_correct': 'False'},
+			{'option3': 'Answer queries', 'is_correct': 'False'},
+			{'option4': 'Both (b) and (c)', 'is_correct': 'True'}
+		]
+	},
+	{
+		'question': 'The logical data structure with a one-to-many relationship is a',
+		'options': [
+			{'option1': 'Tree', 'is_correct': 'True'},
+			{'option2': 'Chain', 'is_correct': 'False'},
+			{'option3': 'Network', 'is_correct': 'False'},
+			{'option4': 'All of these', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'In a database, related fields are grouped to',
+		'options': [
+			{'option1': 'File', 'is_correct': 'False'},
+			{'option2': 'Bank', 'is_correct': 'False'},
+			{'option3': 'Menu', 'is_correct': 'False'},
+			{'option4': 'Data record', 'is_correct': 'True'}
+		]
+	},
+	{
+		'question': 'The database environment has all the following components except',
+		'options': [
+			{'option1': 'Database administrator', 'is_correct': 'False'},
+			{'option2': 'Database', 'is_correct': 'False'},
+			{'option3': 'Users', 'is_correct': 'False'},
+			{'option4': 'Separate files', 'is_correct': 'True'}
+		]
+	},
+	{
+		'question': 'Which database handles full text data, image, audio and video?',
+		'options': [
+			{'option1': 'Video on demand database', 'is_correct': 'False'},
+			{'option2': 'Graphics database', 'is_correct': 'False'},
+			{'option3': 'Multimedia database', 'is_correct': 'True'},
+			{'option4': 'Transaction database', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'Administrative supervision of database activities is the responsibility of the',
+		'options': [
+			{'option1': 'DB manager', 'is_correct': 'False'},
+			{'option2': 'DP manager', 'is_correct': 'False'},
+			{'option3': 'VP-DP administration', 'is_correct': 'False'},
+			{'option4': 'Database administrator', 'is_correct': 'True'}
+		]
+	},
+	{
+		'question': 'A file consists of',
+		'options': [
+			{'option1': 'Records and sorts', 'is_correct': 'False'},
+			{'option2': 'Fields and records', 'is_correct': 'True'},
+			{'option3': 'Fields and sorts', 'is_correct': 'False'},
+			{'option4': 'Databases and fields', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'An entry in the telephone book can be compared to',
+		'options': [
+			{'option1': 'Field', 'is_correct': 'False'},
+			{'option2': 'Record', 'is_correct': 'True'},
+			{'option3': 'File', 'is_correct': 'False'},
+			{'option4': 'Database', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'Which of the following is at the highest level in the hierarchy of data organization?',
+		'options': [
+			{'option1': 'Database', 'is_correct': 'True'},
+			{'option2': 'Data bank', 'is_correct': 'False'},
+			{'option3': 'Data file', 'is_correct': 'False'},
+			{'option4': 'Data record', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'Which language is used by most of DBMSs for helping their users to access data?',
+		'options': [
+			{'option1': 'HHL', 'is_correct': 'False'},
+			{'option2': 'SQL', 'is_correct': 'False'},
+			{'option3': 'Query language', 'is_correct': 'True'},
+			{'option4': '4 GL', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'The relational database management (RDBM) system manages data in more than one file at once. How does it organize these files?',
+		'options': [
+			{'option1': 'Relations', 'is_correct': 'False'},
+			{'option2': 'Tables', 'is_correct': 'False'},
+			{'option3': 'Tuples', 'is_correct': 'False'},
+			{'option4': 'Both (a) and (b)', 'is_correct': 'True'}
+		]
+	},
+	{
+		'question': 'A table consists of',
+		'options': [
+			{'option1': 'Rows and cells', 'is_correct': 'False'},
+			{'option2': 'Rows and columns', 'is_correct': 'True'},
+			{'option3': 'Fields and columns', 'is_correct': 'False'},
+			{'option4': 'None of these', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'A command that lets you change one or more fields in a record is',
+		'options': [
+			{'option1': 'Look-up', 'is_correct': 'False'},
+			{'option2': 'Insert', 'is_correct': 'False'},
+			{'option3': 'Modify', 'is_correct': 'True'},
+			{'option4': 'None of these', 'is_correct': 'False'}
+		]
+	},
+	{
+		'question': 'A database management system',
+		'options': [
+			{'option1': 'is a collection of programs for managing data in a single file', 'is_correct': 'False'},
+			{'option2': 'can do more than a record management system', 'is_correct': 'False'},
+			{'option3': 'allows simultaneous access to multiple file', 'is_correct': 'False'},
+			{'option4': 'both (b) and (c)', 'is_correct': 'True'}
+		]
+	}
+]
