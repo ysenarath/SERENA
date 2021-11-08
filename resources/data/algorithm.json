@@ -1,182 +1,422 @@
 [
-	{
-		'question': 'What is the worst case run-time complexity of binary search algorithm?',
-		'options': [
-			{'option1': 'Ο(n^2)', 'is_correct': 'False'},
-			{'option2': 'Ο(n^log n)', 'is_correct': 'False'},
-			{'option3': 'Ο(n^3)', 'is_correct': 'False'},
-			{'option4': 'Ο(n)', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'A circular linked list can be used for',
-		'options': [
-			{'option1': 'Stack', 'is_correct': 'False'},
-			{'option2': 'Queue', 'is_correct': 'False'},
-			{'option3': 'Both Stack & Queue', 'is_correct': 'True'},
-			{'option4': 'Neither Stack or Queue', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Find the odd out:',
-		'options': [
-			{'option1': 'Prim's Minimal Spanning Tree Algorithm', 'is_correct': 'False'},
-			{'option2': 'Kruskal's Minimal Spanning Tree Algorithm', 'is_correct': 'False'},
-			{'option3': 'Floyd-Warshall's All pair shortest path Algorithm', 'is_correct': 'True'},
-			{'option4': 'Dijkstra's Minimal Spanning Tree Algorithm', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'If the array is already sorted, which of these algorithms will exhibit the best performance',
-		'options': [
-			{'option1': 'Merge Sort', 'is_correct': 'False'},
-			{'option2': 'Insertion Sort', 'is_correct': 'True'},
-			{'option3': 'Quick Sort', 'is_correct': 'False'},
-			{'option4': 'Heap Sort', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'An algorithm is',
-		'options': [
-			{'option1': 'a piece of code to be executed.', 'is_correct': 'False'},
-			{'option2': 'a loosely written code to make final code.', 'is_correct': 'False'},
-			{'option3': 'a step by step procedure to solve problem.', 'is_correct': 'True'},
-			{'option4': 'all of the above.', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Which of the below mentioned sorting algorithms are not stable?',
-		'options': [
-			{'option1': 'Selection Sort', 'is_correct': 'True'},
-			{'option2': 'Bubble Sort', 'is_correct': 'False'},
-			{'option3': 'Merge Sort', 'is_correct': 'False'},
-			{'option4': 'Insertion Sort', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'If queue is implemented using arrays, what would be the worst run time complexity of queue and dequeue operations?',
-		'options': [
-			{'option1': 'Ο(n), Ο(n)', 'is_correct': 'False'},
-			{'option2': 'Ο(n), Ο(1)', 'is_correct': 'False'},
-			{'option3': 'Ο(1), Ο(n)', 'is_correct': 'False'},
-			{'option4': 'Ο(1), Ο(1)', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'In a min heap',
-		'options': [
-			{'option1': 'minimum values are stored.', 'is_correct': 'False'},
-			{'option2': 'child nodes have less value than parent nodes.', 'is_correct': 'False'},
-			{'option3': 'parent nodes have less value than child nodes.', 'is_correct': 'True'},
-			{'option4': 'maximum value is contained by the root node.', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'If we choose Prim's Algorithm for uniquely weighted spanning tree instead of Kruskal's Algorithm, then',
-		'options': [
-			{'option1': 'we'll get a different spanning tree.', 'is_correct': 'False'},
-			{'option2': 'we'll get the same spanning tree.', 'is_correct': 'True'},
-			{'option3': 'spanning will have less edges.', 'is_correct': 'False'},
-			{'option4': 'spanning will not cover all vertices.', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Aposterior analysis are more accurate than apriori analysis because',
-		'options': [
-			{'option1': 'it contains the real data.', 'is_correct': 'False'},
-			{'option2': 'it assumes all other factors to be dynamic.', 'is_correct': 'True'},
-			{'option3': 'it assumes all other factors to be constant.', 'is_correct': 'False'},
-			{'option4': 'it is a result of reverse-engineering.', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Which of the following data structure is more appropriate to represent a heap?',
-		'options': [
-			{'option1': 'Two-dimensional array', 'is_correct': 'False'},
-			{'option2': 'Doubly linked list', 'is_correct': 'False'},
-			{'option3': 'Linear Array', 'is_correct': 'True'},
-			{'option4': 'Linked list', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Minimum number of fields in each node of a doubly linked list is ____',
-		'options': [
-			{'option1': '2', 'is_correct': 'False'},
-			{'option2': '3', 'is_correct': 'True'},
-			{'option3': '4', 'is_correct': 'False'},
-			{'option4': 'None of the above', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'A graph in which all vertices have equal degree is known as ____',
-		'options': [
-			{'option1': 'Complete graph', 'is_correct': 'True'},
-			{'option2': 'Regular graph', 'is_correct': 'False'},
-			{'option3': 'Multi graph', 'is_correct': 'False'},
-			{'option4': 'Simple graph', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'A vertex of in-degree zero in a directed graph is called a/an',
-		'options': [
-			{'option1': 'Root vertex', 'is_correct': 'False'},
-			{'option2': 'Isolated vertex', 'is_correct': 'False'},
-			{'option3': 'Sink', 'is_correct': 'True'},
-			{'option4': 'Articulation point', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'A graph is a tree if and only if graph is',
-		'options': [
-			{'option1': 'Directed graph', 'is_correct': 'False'},
-			{'option2': 'Contains no cycles', 'is_correct': 'True'},
-			{'option3': 'Planar', 'is_correct': 'False'},
-			{'option4': 'Completely connected', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Which of the following piece of information does the data type to the compiler provide?',
-		'options': [
-			{'option1': 'The way the data is to be interpreted', 'is_correct': 'False'},
-			{'option2': 'Range of values', 'is_correct': 'False'},
-			{'option3': 'Amount of memory a data element uses', 'is_correct': 'False'},
-			{'option4': 'All of above', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'The elements of a linked list are store',
-		'options': [
-			{'option1': 'In a structure', 'is_correct': 'False'},
-			{'option2': 'In an array,', 'is_correct': 'False'},
-			{'option3': 'Anywhere the computer has space for them', 'is_correct': 'True'},
-			{'option4': 'In contiguous memory locations', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'A parentheses checker program would be best implemented using',
-		'options': [
-			{'option1': 'List', 'is_correct': 'False'},
-			{'option2': 'Queue', 'is_correct': 'False'},
-			{'option3': 'Stack', 'is_correct': 'True'},
-			{'option4': 'Any of the above', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'To perform level-order traversal on a binary tree, which of the following data structure will be required?',
-		'options': [
-			{'option1': 'Hash table', 'is_correct': 'False'},
-			{'option2': 'Queue', 'is_correct': 'True'},
-			{'option3': 'Binary search tree', 'is_correct': 'False'},
-			{'option4': 'Stack', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Which of the following data structure is required to convert arithmetic expression in infix to its equivalent postfix notation?',
-		'options': [
-			{'option1': 'Queue', 'is_correct': 'False'},
-			{'option2': 'Binary search tree', 'is_correct': 'False'},
-			{'option3': 'Linked list', 'is_correct': 'False'},
-			{'option4': 'None of above', 'is_correct': 'True'}
-		]
-	}
+    {
+        "question": "What is the worst case run-time complexity of binary search algorithm?",
+        "options": [
+            {
+                "option1": "Ο(n^2)",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Ο(n^log n)",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Ο(n^3)",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Ο(n)",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "A circular linked list can be used for",
+        "options": [
+            {
+                "option1": "Stack",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Queue",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Both Stack & Queue",
+                "is_correct": "True"
+            },
+            {
+                "option4": "Neither Stack or Queue",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Find the odd out:",
+        "options": [
+            {
+                "option1": "Prim\"s Minimal Spanning Tree Algorithm",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Kruskal\"s Minimal Spanning Tree Algorithm",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Floyd-Warshall\"s All pair shortest path Algorithm",
+                "is_correct": "True"
+            },
+            {
+                "option4": "Dijkstra\"s Minimal Spanning Tree Algorithm",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "If the array is already sorted, which of these algorithms will exhibit the best performance",
+        "options": [
+            {
+                "option1": "Merge Sort",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Insertion Sort",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Quick Sort",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Heap Sort",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "An algorithm is",
+        "options": [
+            {
+                "option1": "a piece of code to be executed.",
+                "is_correct": "False"
+            },
+            {
+                "option2": "a loosely written code to make final code.",
+                "is_correct": "False"
+            },
+            {
+                "option3": "a step by step procedure to solve problem.",
+                "is_correct": "True"
+            },
+            {
+                "option4": "all of the above.",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Which of the below mentioned sorting algorithms are not stable?",
+        "options": [
+            {
+                "option1": "Selection Sort",
+                "is_correct": "True"
+            },
+            {
+                "option2": "Bubble Sort",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Merge Sort",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Insertion Sort",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "If queue is implemented using arrays, what would be the worst run time complexity of queue and dequeue operations?",
+        "options": [
+            {
+                "option1": "Ο(n), Ο(n)",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Ο(n), Ο(1)",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Ο(1), Ο(n)",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Ο(1), Ο(1)",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "In a min heap",
+        "options": [
+            {
+                "option1": "minimum values are stored.",
+                "is_correct": "False"
+            },
+            {
+                "option2": "child nodes have less value than parent nodes.",
+                "is_correct": "False"
+            },
+            {
+                "option3": "parent nodes have less value than child nodes.",
+                "is_correct": "True"
+            },
+            {
+                "option4": "maximum value is contained by the root node.",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "If we choose Prim\"s Algorithm for uniquely weighted spanning tree instead of Kruskal\"s Algorithm, then",
+        "options": [
+            {
+                "option1": "we\"ll get a different spanning tree.",
+                "is_correct": "False"
+            },
+            {
+                "option2": "we\"ll get the same spanning tree.",
+                "is_correct": "True"
+            },
+            {
+                "option3": "spanning will have less edges.",
+                "is_correct": "False"
+            },
+            {
+                "option4": "spanning will not cover all vertices.",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Aposterior analysis are more accurate than apriori analysis because",
+        "options": [
+            {
+                "option1": "it contains the real data.",
+                "is_correct": "False"
+            },
+            {
+                "option2": "it assumes all other factors to be dynamic.",
+                "is_correct": "True"
+            },
+            {
+                "option3": "it assumes all other factors to be constant.",
+                "is_correct": "False"
+            },
+            {
+                "option4": "it is a result of reverse-engineering.",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following data structure is more appropriate to represent a heap?",
+        "options": [
+            {
+                "option1": "Two-dimensional array",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Doubly linked list",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Linear Array",
+                "is_correct": "True"
+            },
+            {
+                "option4": "Linked list",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Minimum number of fields in each node of a doubly linked list is ____",
+        "options": [
+            {
+                "option1": "2",
+                "is_correct": "False"
+            },
+            {
+                "option2": "3",
+                "is_correct": "True"
+            },
+            {
+                "option3": "4",
+                "is_correct": "False"
+            },
+            {
+                "option4": "None of the above",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "A graph in which all vertices have equal degree is known as ____",
+        "options": [
+            {
+                "option1": "Complete graph",
+                "is_correct": "True"
+            },
+            {
+                "option2": "Regular graph",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Multi graph",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Simple graph",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "A vertex of in-degree zero in a directed graph is called a/an",
+        "options": [
+            {
+                "option1": "Root vertex",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Isolated vertex",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Sink",
+                "is_correct": "True"
+            },
+            {
+                "option4": "Articulation point",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "A graph is a tree if and only if graph is",
+        "options": [
+            {
+                "option1": "Directed graph",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Contains no cycles",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Planar",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Completely connected",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following piece of information does the data type to the compiler provide?",
+        "options": [
+            {
+                "option1": "The way the data is to be interpreted",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Range of values",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Amount of memory a data element uses",
+                "is_correct": "False"
+            },
+            {
+                "option4": "All of above",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "The elements of a linked list are store",
+        "options": [
+            {
+                "option1": "In a structure",
+                "is_correct": "False"
+            },
+            {
+                "option2": "In an array,",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Anywhere the computer has space for them",
+                "is_correct": "True"
+            },
+            {
+                "option4": "In contiguous memory locations",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "A parentheses checker program would be best implemented using",
+        "options": [
+            {
+                "option1": "List",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Queue",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Stack",
+                "is_correct": "True"
+            },
+            {
+                "option4": "Any of the above",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "To perform level-order traversal on a binary tree, which of the following data structure will be required?",
+        "options": [
+            {
+                "option1": "Hash table",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Queue",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Binary search tree",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Stack",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following data structure is required to convert arithmetic expression in infix to its equivalent postfix notation?",
+        "options": [
+            {
+                "option1": "Queue",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Binary search tree",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Linked list",
+                "is_correct": "False"
+            },
+            {
+                "option4": "None of above",
+                "is_correct": "True"
+            }
+        ]
+    }
 ]

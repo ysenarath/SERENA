@@ -1,165 +1,354 @@
 [
-	{
-		'question': 'What is the simplest way to stop brute-force cyberattacks dead in their tracks?',
-		'options': [
-			{'option1': 'Shred all paperwork containing sensitive information', 'is_correct': 'False'},
-			{'option2': 'Add a deadbolt lock to all entryways', 'is_correct': 'False'},
-			{'option3': 'Add a few unique characters to any password or PIN', 'is_correct': 'True'},
-			{'option4': 'None of the above', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'What’s the quickest way to stop a suspected app, device, or OS from spying on you?',
-		'options': [
-			{'option1': 'Google user reports of that device’s spying activity and what those people did to stop it.', 'is_correct': 'False'},
-			{'option2': 'Log out of the suspected device or account and go about your day.', 'is_correct': 'True'},
-			{'option3': 'Visit Consumer Affairs or the Federal Trade Commission website for tips.', 'is_correct': 'False'},
-			{'option4': 'None of the above', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'What is the weakest link in cybersecurity?',
-		'options': [
-			{'option1': 'Weak encryption', 'is_correct': 'False'},
-			{'option2': 'Humans', 'is_correct': 'True'},
-			{'option3': 'Short passwords', 'is_correct': 'False'},
-			{'option4': 'None of the above', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'What is the first thing you should do if your company is facing ransomware demands?',
-		'options': [
-			{'option1': 'Determine if ransomware demand is legitimate and follow instructions to get your data back', 'is_correct': 'False'},
-			{'option2': 'Ignore the demands, but back up all data just in case', 'is_correct': 'False'},
-			{'option3': 'Contact the police and do not pay the ransom', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'Which one of these things will a comprehensive cyber insurance NOT protect you from?',
-		'options': [
-			{'option1': 'Poor cybersecurity hygiene and implementation', 'is_correct': 'True'},
-			{'option2': 'A ransomware attack on your company’s computer network', 'is_correct': 'False'},
-			{'option3': 'An employee skimming/stealing customers’ credit cards', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'What’s the best way to secure a weak password like “monkey123”?',
-		'options': [
-			{'option1': 'Add an uppercase numeral and a special character, such as $', 'is_correct': 'False'},
-			{'option2': 'Don’t reuse it anywhere else or share it with anyone', 'is_correct': 'False'},
-			{'option3': 'Enable two-factor authentication', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'When using a VPN, what’s the one thing that you cannot hide from ISPs, hackers, and the government?',
-		'options': [
-			{'option1': 'The fact that you’re using a VPN', 'is_correct': 'True'},
-			{'option2': 'Your identity', 'is_correct': 'False'},
-			{'option3': 'Your data', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'The best way to minimize your digital footprint is to:',
-		'options': [
-			{'option1': 'Take fewer photos with your smartphone.', 'is_correct': 'False'},
-			{'option2': 'Travel less with your smartphone.', 'is_correct': 'False'},
-			{'option3': 'Post less on social media.', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'What is most valuable to companies looking to sell you something?',
-		'options': [
-			{'option1': 'Your phone number', 'is_correct': 'True'},
-			{'option2': 'Your email address', 'is_correct': 'False'},
-			{'option3': 'Your physical address', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'What’s the best way to deal with pesky robocalls?',
-		'options': [
-			{'option1': 'Ask to speak with their supervisor', 'is_correct': 'False'},
-			{'option2': 'Use a carrier-approved smartphone app', 'is_correct': 'True'},
-			{'option3': 'Register your phone number to the do- not-call list', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Which organization is the most vulnerable to hacking?',
-		'options': [
-			{'option1': 'Charitable organizations with weak cybersecurity', 'is_correct': 'True'},
-			{'option2': 'Black market websites with strong cybersecurity', 'is_correct': 'False'},
-			{'option3': 'Your business', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'When is it ok to reuse a password?',
-		'options': [
-			{'option1': 'When you are logging into social media accounts', 'is_correct': 'False'},
-			{'option2': 'When it is too hard to remember a long password', 'is_correct': 'False'},
-			{'option3': 'Never', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'What should you do if you think your identity or accounts have been compromised?',
-		'options': [
-			{'option1': 'Monitor your email address and accounts for fraudulent activity', 'is_correct': 'True'},
-			{'option2': 'Respond to the warning email you have received', 'is_correct': 'False'},
-			{'option3': 'Subscribe to a monitoring service such as Lifelock or WebWatcher', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'The best defense against ransomware is being proactive when you:',
-		'options': [
-			{'option1': 'Purchase comprehensive cybersecurity insurance', 'is_correct': 'False'},
-			{'option2': 'Back up your data regularly', 'is_correct': 'True'},
-			{'option3': 'Regularly update all your devices and software with the latest security patches.', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'What’s the best way to steer clear of IoT device security hacks?',
-		'options': [
-			{'option1': 'Only choose name-brand hardware makers', 'is_correct': 'False'},
-			{'option2': 'Disconnect IoT devices from the internet when you are not using them.', 'is_correct': 'False'},
-			{'option3': 'Do not purchase any IoT devices you do not need.', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'What will freezing your credit not affect?',
-		'options': [
-			{'option1': 'Vulnerability to identity theft', 'is_correct': 'False'},
-			{'option2': 'Your credit score', 'is_correct': 'True'},
-			{'option3': 'Need to monitor financial statements for fraud', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Which ride-sharing service collects the least amount of your data?',
-		'options': [
-			{'option1': 'Uber', 'is_correct': 'False'},
-			{'option2': 'Lyft', 'is_correct': 'False'},
-			{'option3': 'Public taxi service', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'What is the best way to keep employees from falling for phishing scams?',
-		'options': [
-			{'option1': 'Email filters that block suspicious attachments', 'is_correct': 'False'},
-			{'option2': 'Cybersecurity awareness training', 'is_correct': 'True'},
-			{'option3': 'Pop-up blockers', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'What is the best way to maintain privacy between two parties?',
-		'options': [
-			{'option1': 'Long and strong passwords and two- factor authentication', 'is_correct': 'False'},
-			{'option2': 'Encrypted cloud services', 'is_correct': 'False'},
-			{'option3': 'End-to-end encryption', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'Which of the following cryptocurrency statements is false?',
-		'options': [
-			{'option1': 'Blockchain is the digital ledger that records all cryptocurrency transactions.', 'is_correct': 'False'},
-			{'option2': 'Each new Bitcoin mined requires slightly more energy than the previous one.', 'is_correct': 'False'},
-			{'option3': 'Cryptocurrency is 100 times more secure than traditional currency.', 'is_correct': 'True'}
-		]
-	}
+    {
+        "question": "What is the simplest way to stop brute-force cyberattacks dead in their tracks?",
+        "options": [
+            {
+                "option1": "Shred all paperwork containing sensitive information",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Add a deadbolt lock to all entryways",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Add a few unique characters to any password or PIN",
+                "is_correct": "True"
+            },
+            {
+                "option4": "None of the above",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "What’s the quickest way to stop a suspected app, device, or OS from spying on you?",
+        "options": [
+            {
+                "option1": "Google user reports of that device’s spying activity and what those people did to stop it.",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Log out of the suspected device or account and go about your day.",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Visit Consumer Affairs or the Federal Trade Commission website for tips.",
+                "is_correct": "False"
+            },
+            {
+                "option4": "None of the above",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "What is the weakest link in cybersecurity?",
+        "options": [
+            {
+                "option1": "Weak encryption",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Humans",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Short passwords",
+                "is_correct": "False"
+            },
+            {
+                "option4": "None of the above",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "What is the first thing you should do if your company is facing ransomware demands?",
+        "options": [
+            {
+                "option1": "Determine if ransomware demand is legitimate and follow instructions to get your data back",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Ignore the demands, but back up all data just in case",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Contact the police and do not pay the ransom",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "Which one of these things will a comprehensive cyber insurance NOT protect you from?",
+        "options": [
+            {
+                "option1": "Poor cybersecurity hygiene and implementation",
+                "is_correct": "True"
+            },
+            {
+                "option2": "A ransomware attack on your company’s computer network",
+                "is_correct": "False"
+            },
+            {
+                "option3": "An employee skimming/stealing customers’ credit cards",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "What’s the best way to secure a weak password like “monkey123”?",
+        "options": [
+            {
+                "option1": "Add an uppercase numeral and a special character, such as $",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Don’t reuse it anywhere else or share it with anyone",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Enable two-factor authentication",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "When using a VPN, what’s the one thing that you cannot hide from ISPs, hackers, and the government?",
+        "options": [
+            {
+                "option1": "The fact that you’re using a VPN",
+                "is_correct": "True"
+            },
+            {
+                "option2": "Your identity",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Your data",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "The best way to minimize your digital footprint is to:",
+        "options": [
+            {
+                "option1": "Take fewer photos with your smartphone.",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Travel less with your smartphone.",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Post less on social media.",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "What is most valuable to companies looking to sell you something?",
+        "options": [
+            {
+                "option1": "Your phone number",
+                "is_correct": "True"
+            },
+            {
+                "option2": "Your email address",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Your physical address",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "What’s the best way to deal with pesky robocalls?",
+        "options": [
+            {
+                "option1": "Ask to speak with their supervisor",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Use a carrier-approved smartphone app",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Register your phone number to the do- not-call list",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Which organization is the most vulnerable to hacking?",
+        "options": [
+            {
+                "option1": "Charitable organizations with weak cybersecurity",
+                "is_correct": "True"
+            },
+            {
+                "option2": "Black market websites with strong cybersecurity",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Your business",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "When is it ok to reuse a password?",
+        "options": [
+            {
+                "option1": "When you are logging into social media accounts",
+                "is_correct": "False"
+            },
+            {
+                "option2": "When it is too hard to remember a long password",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Never",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "What should you do if you think your identity or accounts have been compromised?",
+        "options": [
+            {
+                "option1": "Monitor your email address and accounts for fraudulent activity",
+                "is_correct": "True"
+            },
+            {
+                "option2": "Respond to the warning email you have received",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Subscribe to a monitoring service such as Lifelock or WebWatcher",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "The best defense against ransomware is being proactive when you:",
+        "options": [
+            {
+                "option1": "Purchase comprehensive cybersecurity insurance",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Back up your data regularly",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Regularly update all your devices and software with the latest security patches.",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "What’s the best way to steer clear of IoT device security hacks?",
+        "options": [
+            {
+                "option1": "Only choose name-brand hardware makers",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Disconnect IoT devices from the internet when you are not using them.",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Do not purchase any IoT devices you do not need.",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "What will freezing your credit not affect?",
+        "options": [
+            {
+                "option1": "Vulnerability to identity theft",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Your credit score",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Need to monitor financial statements for fraud",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Which ride-sharing service collects the least amount of your data?",
+        "options": [
+            {
+                "option1": "Uber",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Lyft",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Public taxi service",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "What is the best way to keep employees from falling for phishing scams?",
+        "options": [
+            {
+                "option1": "Email filters that block suspicious attachments",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Cybersecurity awareness training",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Pop-up blockers",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "What is the best way to maintain privacy between two parties?",
+        "options": [
+            {
+                "option1": "Long and strong passwords and two- factor authentication",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Encrypted cloud services",
+                "is_correct": "False"
+            },
+            {
+                "option3": "End-to-end encryption",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following cryptocurrency statements is false?",
+        "options": [
+            {
+                "option1": "Blockchain is the digital ledger that records all cryptocurrency transactions.",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Each new Bitcoin mined requires slightly more energy than the previous one.",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Cryptocurrency is 100 times more secure than traditional currency.",
+                "is_correct": "True"
+            }
+        ]
+    }
 ]

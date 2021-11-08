@@ -1,174 +1,390 @@
 [
-	{
-		'question': 'What are the other types of OLAP apart from ROLAP?',
-		'options': [
-			{'option1': 'HOLAP', 'is_correct': 'False'},
-			{'option2': 'MOLAP', 'is_correct': 'True'},
-			{'option3': 'DOLAP', 'is_correct': 'False'},
-			{'option4': 'Both a and b above', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'A network router joins two _________ together.',
-		'options': [
-			{'option1': 'Computers', 'is_correct': 'False'},
-			{'option2': 'Switches', 'is_correct': 'False'},
-			{'option3': 'Networks', 'is_correct': 'True'},
-			{'option4': 'Gateway', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Message Oriented Middleware allows general purpose messages to be exchanged in a Client/Server system using message queues.',
-		'options': [
-			{'option1': 'True', 'is_correct': 'True'},
-			{'option2': 'False', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Which of the following below is a loopback IP address?',
-		'options': [
-			{'option1': '127.0.0.0', 'is_correct': 'False'},
-			{'option2': '127.0.1.1', 'is_correct': 'False'},
-			{'option3': '127.0.1.0', 'is_correct': 'False'},
-			{'option4': '127.0.0.1', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'Ping command works on which protocol?',
-		'options': [
-			{'option1': 'ICMP', 'is_correct': 'True'},
-			{'option2': 'TCP', 'is_correct': 'False'},
-			{'option3': 'IP', 'is_correct': 'False'},
-			{'option4': 'UDP', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Transport layer of OSI model lies between Network and ___________ layer.',
-		'options': [
-			{'option1': 'Application', 'is_correct': 'False'},
-			{'option2': 'Data Link', 'is_correct': 'False'},
-			{'option3': 'Session', 'is_correct': 'True'},
-			{'option4': 'Presentation', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Which of the following protocols below work in the application layer?',
-		'options': [
-			{'option1': 'POP', 'is_correct': 'False'},
-			{'option2': 'PPP', 'is_correct': 'False'},
-			{'option3': 'FTP', 'is_correct': 'False'},
-			{'option4': 'Both a and d above', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'What is the port number for HTTP?',
-		'options': [
-			{'option1': '25', 'is_correct': 'False'},
-			{'option2': '80', 'is_correct': 'True'},
-			{'option3': '21', 'is_correct': 'False'},
-			{'option4': '65', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'IP4 is more commonly used than IPv6?',
-		'options': [
-			{'option1': 'True', 'is_correct': 'True'},
-			{'option2': 'False', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'From the options below, which suits best for MODEM?',
-		'options': [
-			{'option1': 'a device that modulates an analog carrier signal to encode digital information', 'is_correct': 'True'},
-			{'option2': 'a device that modulates a digital carrier signal to encode analog information', 'is_correct': 'False'},
-			{'option3': 'a device that modulates an analog carrier signal to decode digital information', 'is_correct': 'False'},
-			{'option4': 'a device that modulates a digital carrier signal to decode analog information', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'What is the size of an IP address?',
-		'options': [
-			{'option1': '64 bit', 'is_correct': 'False'},
-			{'option2': '128 bit', 'is_correct': 'False'},
-			{'option3': '16 bit', 'is_correct': 'False'},
-			{'option4': '32 bit', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'MAC addresses are also known as?',
-		'options': [
-			{'option1': 'Hardware address', 'is_correct': 'False'},
-			{'option2': 'Physical address', 'is_correct': 'False'},
-			{'option3': 'both and b above', 'is_correct': 'True'},
-			{'option4': 'IP address', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'A network point that provides entrance into another network is called as ___________',
-		'options': [
-			{'option1': 'Node', 'is_correct': 'False'},
-			{'option2': 'Gateway', 'is_correct': 'True'},
-			{'option3': 'Switch', 'is_correct': 'False'},
-			{'option4': 'Router', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'UDP is an unreliable protocol.',
-		'options': [
-			{'option1': 'True', 'is_correct': 'True'},
-			{'option2': 'False', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'A stream socket provides _________ communications between a client and a server.',
-		'options': [
-			{'option1': 'One way', 'is_correct': 'False'},
-			{'option2': 'Two way', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'Token Ring is a data link technology for?',
-		'options': [
-			{'option1': 'WAN', 'is_correct': 'False'},
-			{'option2': 'MAN', 'is_correct': 'False'},
-			{'option3': 'LAN', 'is_correct': 'True'},
-			{'option4': 'both a and b above', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'Which of the following protocol below are suited for email retrieval?',
-		'options': [
-			{'option1': 'POP3', 'is_correct': 'False'},
-			{'option2': 'IMAP', 'is_correct': 'False'},
-			{'option3': 'FTP', 'is_correct': 'False'},
-			{'option4': 'Both and b above', 'is_correct': 'True'}
-		]
-	},
-	{
-		'question': 'TELNET used _________ protocol for data connection.',
-		'options': [
-			{'option1': 'TCP', 'is_correct': 'True'},
-			{'option2': 'UDP', 'is_correct': 'False'},
-			{'option3': 'IP', 'is_correct': 'False'},
-			{'option4': 'DHCP', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': '10Base5, 10Base2, 10BaseT are types of?',
-		'options': [
-			{'option1': 'Internet', 'is_correct': 'False'},
-			{'option2': 'LAN', 'is_correct': 'False'},
-			{'option3': 'Ethernet', 'is_correct': 'True'},
-			{'option4': 'Cables', 'is_correct': 'False'}
-		]
-	},
-	{
-		'question': 'What is the full form of URL?',
-		'options': [
-			{'option1': 'Uniform Routing Locator', 'is_correct': 'False'},
-			{'option2': 'Uniform Resource Locator', 'is_correct': 'True'},
-			{'option3': 'Universal Resource Locator', 'is_correct': 'False'},
-			{'option4': 'Uniform Router Locator', 'is_correct': 'False'}
-		]
-	}
+    {
+        "question": "What are the other types of OLAP apart from ROLAP?",
+        "options": [
+            {
+                "option1": "HOLAP",
+                "is_correct": "False"
+            },
+            {
+                "option2": "MOLAP",
+                "is_correct": "True"
+            },
+            {
+                "option3": "DOLAP",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Both a and b above",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "A network router joins two _________ together.",
+        "options": [
+            {
+                "option1": "Computers",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Switches",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Networks",
+                "is_correct": "True"
+            },
+            {
+                "option4": "Gateway",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Message Oriented Middleware allows general purpose messages to be exchanged in a Client/Server system using message queues.",
+        "options": [
+            {
+                "option1": "True",
+                "is_correct": "True"
+            },
+            {
+                "option2": "False",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following below is a loopback IP address?",
+        "options": [
+            {
+                "option1": "127.0.0.0",
+                "is_correct": "False"
+            },
+            {
+                "option2": "127.0.1.1",
+                "is_correct": "False"
+            },
+            {
+                "option3": "127.0.1.0",
+                "is_correct": "False"
+            },
+            {
+                "option4": "127.0.0.1",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "Ping command works on which protocol?",
+        "options": [
+            {
+                "option1": "ICMP",
+                "is_correct": "True"
+            },
+            {
+                "option2": "TCP",
+                "is_correct": "False"
+            },
+            {
+                "option3": "IP",
+                "is_correct": "False"
+            },
+            {
+                "option4": "UDP",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Transport layer of OSI model lies between Network and ___________ layer.",
+        "options": [
+            {
+                "option1": "Application",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Data Link",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Session",
+                "is_correct": "True"
+            },
+            {
+                "option4": "Presentation",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following protocols below work in the application layer?",
+        "options": [
+            {
+                "option1": "POP",
+                "is_correct": "False"
+            },
+            {
+                "option2": "PPP",
+                "is_correct": "False"
+            },
+            {
+                "option3": "FTP",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Both a and d above",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "What is the port number for HTTP?",
+        "options": [
+            {
+                "option1": "25",
+                "is_correct": "False"
+            },
+            {
+                "option2": "80",
+                "is_correct": "True"
+            },
+            {
+                "option3": "21",
+                "is_correct": "False"
+            },
+            {
+                "option4": "65",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "IP4 is more commonly used than IPv6?",
+        "options": [
+            {
+                "option1": "True",
+                "is_correct": "True"
+            },
+            {
+                "option2": "False",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "From the options below, which suits best for MODEM?",
+        "options": [
+            {
+                "option1": "a device that modulates an analog carrier signal to encode digital information",
+                "is_correct": "True"
+            },
+            {
+                "option2": "a device that modulates a digital carrier signal to encode analog information",
+                "is_correct": "False"
+            },
+            {
+                "option3": "a device that modulates an analog carrier signal to decode digital information",
+                "is_correct": "False"
+            },
+            {
+                "option4": "a device that modulates a digital carrier signal to decode analog information",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "What is the size of an IP address?",
+        "options": [
+            {
+                "option1": "64 bit",
+                "is_correct": "False"
+            },
+            {
+                "option2": "128 bit",
+                "is_correct": "False"
+            },
+            {
+                "option3": "16 bit",
+                "is_correct": "False"
+            },
+            {
+                "option4": "32 bit",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "MAC addresses are also known as?",
+        "options": [
+            {
+                "option1": "Hardware address",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Physical address",
+                "is_correct": "False"
+            },
+            {
+                "option3": "both and b above",
+                "is_correct": "True"
+            },
+            {
+                "option4": "IP address",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "A network point that provides entrance into another network is called as ___________",
+        "options": [
+            {
+                "option1": "Node",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Gateway",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Switch",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Router",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "UDP is an unreliable protocol.",
+        "options": [
+            {
+                "option1": "True",
+                "is_correct": "True"
+            },
+            {
+                "option2": "False",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "A stream socket provides _________ communications between a client and a server.",
+        "options": [
+            {
+                "option1": "One way",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Two way",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "Token Ring is a data link technology for?",
+        "options": [
+            {
+                "option1": "WAN",
+                "is_correct": "False"
+            },
+            {
+                "option2": "MAN",
+                "is_correct": "False"
+            },
+            {
+                "option3": "LAN",
+                "is_correct": "True"
+            },
+            {
+                "option4": "both a and b above",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "Which of the following protocol below are suited for email retrieval?",
+        "options": [
+            {
+                "option1": "POP3",
+                "is_correct": "False"
+            },
+            {
+                "option2": "IMAP",
+                "is_correct": "False"
+            },
+            {
+                "option3": "FTP",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Both and b above",
+                "is_correct": "True"
+            }
+        ]
+    },
+    {
+        "question": "TELNET used _________ protocol for data connection.",
+        "options": [
+            {
+                "option1": "TCP",
+                "is_correct": "True"
+            },
+            {
+                "option2": "UDP",
+                "is_correct": "False"
+            },
+            {
+                "option3": "IP",
+                "is_correct": "False"
+            },
+            {
+                "option4": "DHCP",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "10Base5, 10Base2, 10BaseT are types of?",
+        "options": [
+            {
+                "option1": "Internet",
+                "is_correct": "False"
+            },
+            {
+                "option2": "LAN",
+                "is_correct": "False"
+            },
+            {
+                "option3": "Ethernet",
+                "is_correct": "True"
+            },
+            {
+                "option4": "Cables",
+                "is_correct": "False"
+            }
+        ]
+    },
+    {
+        "question": "What is the full form of URL?",
+        "options": [
+            {
+                "option1": "Uniform Routing Locator",
+                "is_correct": "False"
+            },
+            {
+                "option2": "Uniform Resource Locator",
+                "is_correct": "True"
+            },
+            {
+                "option3": "Universal Resource Locator",
+                "is_correct": "False"
+            },
+            {
+                "option4": "Uniform Router Locator",
+                "is_correct": "False"
+            }
+        ]
+    }
 ]
