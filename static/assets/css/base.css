@@ -9,15 +9,6 @@ html, body {
     overflow-x: hidden;
 }
 
-.is-accent {
-    background: #485FC7;
-    color: #ffffff;
-}
-
-.is-accent-text {
-    color: #ffffff;
-}
-
 .h-100 {
     height: 100%;
 }
@@ -37,4 +28,13 @@ html, body {
     display: flex;
     flex-flow: column;
     justify-content: flex-end;
+}
+
+.question-options .list-item:hover {
+    background: #485FC7;
+    color: #ffffff !important;
+}
+
+.question-options .list-item:hover > * {
+    color: #ffffff !important;
 }

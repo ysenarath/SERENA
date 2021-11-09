@@ -8,14 +8,51 @@
                     {% for message in history %}
                         <div class="columns {% if message['author'] == 'user' %}is-justify-content-end{% endif %}">
                             <div class="column is-two-thirds mx-3">
-                                <div class="box">
-                                    <p>{{ message['text'] }}</p>
-                                </div>
-                                <div class="buttons">
-                                    {% for s in message['suggestions'] %}
-                                        <button class="button is-link is-rounded">{{ s }}</button>
-                                    {% endfor %}
-                                </div>
+                                {% if 'text' in message %}
+                                    <div class="box">
+                                        <p>{{ message['text'] }}</p>
+                                    </div>
+                                {% endif %}
+                                {% if message['type'].lower() == 'answer' and 'options' in message %}
+                                    <div class="list box p-0">
+                                        {% for item in message['options'] %}
+                                            {% if (item['is_answer'] | default(False)) and item['is_correct'] %}
+                                                {% set style_class = 'has-background-success-light' %}
+                                                {% set message_text = 'Your answer is correct.' %}
+                                            {% elif item['is_answer'] | default(False) %}
+                                                {% set style_class = 'has-background-danger-light' %}
+                                                {% set message_text = 'This was your answer.' %}
+                                            {% elif item['is_correct'] %}
+                                                {% set style_class = 'has-background-success-light' %}
+                                                {% set message_text = 'This is the correct answer.' %}
+                                            {% endif %}
+                                            <div class="list-item pl-5 {{ style_class | default('') }}">
+                                                <div class="list-item-image">{{ item['key'] }}</div>
+                                                <div class="list-item-content">
+                                                    <div class="list-item-title">{{ item['option'] }}</div>
+                                                    <div class="list-item-description">{{ message_text }}</div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if loop.last and 'suggestions' in message %}
+                                    <div class="buttons">
+                                        {% for s in message['suggestions'] %}
+                                            <button class="button is-link is-rounded">{{ s }}</button>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if loop.last and 'options' in message %}
+                                    <div class="question-options list box p-0">
+                                        {% for s in message['options'] %}
+                                            <div class="list-item pl-5">
+                                                <div class="list-item-image">{{ s['key'] }}</div>
+                                                <div class="list-item-title">{{ s['option'] }}</div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}

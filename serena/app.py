@@ -1,9 +1,9 @@
 # app.py
+import collections
 
 from flask import Flask, render_template, request, session
 
 from serena import chat
-from serena.chat import elements as el
 from serena.config import config
 
 TEMPLATE_FOLDER = config['flask']['template_folder']
@@ -17,24 +17,24 @@ app.secret_key = SECRET_KEY
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    # load status {
-    if 'status' in session:
-        status = session['status']
+    if 'state' in session:
+        state = session['state']  # load state
     else:
-        status = {'__meta__': {'history': []}}
-    # }
-    history = status['__meta__']['history']
+        state = {'__meta__': {'history': []}}
+    history = state['__meta__']['history']
+    input = None
     if request.method == 'POST':
         input = request.form.get('input', None)
         if input is not None and len(input.strip()) != 0:
-            input = el.message(input, author='user')
+            input = chat.message(input, author='user')
             history.append(input)
-            # process input and get output {
-            output, status = chat.process_input(input, status)
-            # } update values {
-            history.append(output)
-            status['__meta__']['history'] = history
-            # } update session values {
-            session['status'] = status
-            # }
+    elif len(history) == 0:
+        input = chat.message(None, author='user')
+    if input is not None:
+        output, state = chat.process_input(input, state)  # process input and get output
+        if not isinstance(output, collections.Sequence):
+            output = [output]
+        history += output
+        state['__meta__']['history'] = history  # update history
+        session['state'] = state  # update state
     return render_template('index.html', title='SERENA', history=history)
