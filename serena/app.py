@@ -1,6 +1,7 @@
 # app.py
 import collections
 
+import flask
 from flask import Flask, render_template, request, session
 
 from serena import chat
@@ -37,4 +38,10 @@ def index():
         history += output
         state['__meta__']['history'] = history  # update history
         session['state'] = state  # update state
-    return render_template('index.html', title='SERENA', history=history)
+    return render_template('index.html', title='SERENA', history=history, state=state)
+
+
+@app.route('/logout')
+def logout():
+    session.pop('state')
+    return flask.redirect(flask.url_for('index'))
