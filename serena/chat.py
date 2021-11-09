@@ -64,18 +64,19 @@ def get_answer_index(text, options):
     options = {o['key']: i for i, o in enumerate(options)}
     try:
         answer_key = int(text)
-        answer_index = options[answer_key]
+        if answer_key in options:
+            answer_index = options[answer_key]
     except ValueError as e:
         pass
     return answer_index
 
 
-def get_username(input_text, user_name):
+def get_username(input_text, username):
     doc = nlp(input_text)
     for ent in doc.entities:
         if ent.type == 'PERSON':
-            user_name = ent.text
-    return user_name
+            username = ent.text
+    return username
 
 
 def get_is_true(input_text):
@@ -89,11 +90,11 @@ def get_is_true(input_text):
 def process_input(input, state):
     input_text = input.get('text', None)
     state_value = state.get('value', StateValue.START)
-    user_name = state.get('user_name', None)
+    username = state.get('username', None)
     current_test = state.get('current_test', None)
     output = []
     if state_value == StateValue.START:
-        if user_name is None:
+        if username is None:
             output += [
                 message(text='Welcome! I’m Serena, here to help you to prepare for exams.'),
                 message(text='What is your name?')
@@ -101,22 +102,22 @@ def process_input(input, state):
             state_value = StateValue.ASK_NAME
         else:
             output += [
-                message(text='Hi {}, nice to meet you again!'.format(user_name)),
+                message(text='Hi {}, nice to meet you again!'.format(username)),
                 message(text='What do you like to learn now?', suggestions=[
                     'Algorithms', 'Cybersecurity', 'Database', 'Networking',
                 ]),
             ]
             state_value = StateValue.ASK_TEST_TYPE
     elif state_value == StateValue.ASK_NAME:
-        user_name = get_username(input_text, user_name)
-        if user_name is None:
+        username = get_username(input_text, username)
+        if username is None:
             output += [
                 message(text='Sorry, I didn\'t catch your name.'),
                 message(text='Could you please enter your name again?'),
             ]
         else:
             output += [
-                message(text='Nice to meet you {}'.format(user_name)),
+                message(text='Nice to meet you {}'.format(username)),
                 message(text='Which subject do you want to learn today?', suggestions=[
                     'Algorithms', 'Cybersecurity', 'Database', 'Networking',
                 ]),
@@ -151,31 +152,38 @@ def process_input(input, state):
             current_question_index = current_test['current_index']
             previous_question = current_test['questions'][current_question_index]
             answer_idx = get_answer_index(input_text, options=previous_question['options'])
-            previous_question['options'][answer_idx]['is_answer'] = True
-            if previous_question['options'][answer_idx]['is_correct']:
-                message_text = 'Your answer is correct!'
-            else:
-                message_text = 'It looks like your answer is incorrect.'
-            output += [
-                # show answer to previous question
-                message(text=message_text, options=previous_question['options'], type='answer')
-            ]
-            if current_test['current_index'] < len(current_test['questions']) - 1:
-                current_test['current_index'] = current_question_index + 1
-                question = current_test['questions'][current_test['current_index']]
+            if answer_idx is not None:
+                previous_question['options'][answer_idx]['is_answer'] = True
+                if previous_question['options'][answer_idx]['is_correct']:
+                    message_text = 'Your answer is correct!'
+                else:
+                    message_text = 'It looks like your answer is incorrect.'
                 output += [
-                    # ask next question
-                    message(text=question['question'], options=question['options'])
+                    # show answer to previous question
+                    message(text=message_text, options=previous_question['options'], type='answer')
+                ]
+                if current_test['current_index'] < len(current_test['questions']) - 1:
+                    current_test['current_index'] = current_question_index + 1
+                    question = current_test['questions'][current_test['current_index']]
+                    output += [
+                        # ask next question
+                        message(text=question['question'], options=question['options'])
+                    ]
+                    state_value = StateValue.ASK_QUESTION
+                else:
+                    output += [
+                        # show minimal report and ask if she wants to continue
+                        message(text='You completed the test successfully! more...'),
+                        message(text='Do you want to review?', suggestions=['Yes', 'No']),
+                    ]
+                    current_test = None
+                    state_value = StateValue.SHOW_REPORT
+            else:
+                output += [
+                    message(text='Sorry, I did\'t understand your answer. Here is the question again.'),
+                    message(text=previous_question['question'], options=previous_question['options']),
                 ]
                 state_value = StateValue.ASK_QUESTION
-            else:
-                output += [
-                    # show minimal report and ask if she wants to continue
-                    message(text='You completed the test successfully! more...'),
-                    message(text='Do you want to review?', suggestions=['Yes', 'No']),
-                ]
-                current_test = None
-                state_value = StateValue.SHOW_REPORT
         else:
             output += [
                 message(text='We couldn\'t create a test for you now. '
@@ -214,6 +222,6 @@ def process_input(input, state):
                 message(text='Sorry, can you please repeat, I did not understand?', suggestions=['Yes', 'No']),
             ]
     state['value'] = state_value
-    state['user_name'] = user_name
+    state['username'] = username
     state['current_test'] = current_test
     return output, state
