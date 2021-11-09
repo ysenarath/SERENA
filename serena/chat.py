@@ -6,10 +6,10 @@ import stanza
 from serena import db
 
 try:
-    nlp = stanza.Pipeline('en')
+    nlp = stanza.Pipeline(lang='en', processors='tokenize,ner')
 except OSError as _:
-    stanza.download('en')
-    nlp = stanza.Pipeline('en')
+    stanza.download('en', processors='tokenize,pos')
+    nlp = stanza.Pipeline(lang='en', processors='tokenize,ner')
 
 
 def message(text, author='bot', suggestions=None, options=None, type='default'):
