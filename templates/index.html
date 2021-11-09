@@ -1,19 +1,19 @@
 {% extends 'layouts/default.html' %}
 
 {% block body %}
-    <section class="hero is-fullheight-with-navbar has-background-white">
+    <section class="hero is-fullheight-with-navbar has-background-white-bis">
         <div class="hero-body p-0">
-            <div class="container is-max-desktop has-background-light">
-                <div id="chatHistory" class="chat-history">
+            <div class="container is-max-desktop has-background-white-ter">
+                <div id="chatHistory" class="chat-history py-3">
                     {% for message in history %}
                         <div class="columns {% if message['author'] == 'user' %}is-justify-content-end{% endif %}">
                             <div class="column is-two-thirds mx-3">
                                 {% if 'text' in message %}
-                                    <div class="box">
+                                    <div class="box mb-0">
                                         <p>{{ message['text'] }}</p>
                                     </div>
                                 {% endif %}
-                                {% if message['type'].lower() == 'answer' and 'options' in message %}
+                                {% if message['type'].lower() == 'answer' and 'options' in message and message['options'] | length > 0 %}
                                     <div class="list box p-0">
                                         {% for item in message['options'] %}
                                             {% if (item['is_answer'] | default(False)) and item['is_correct'] %}
@@ -43,7 +43,7 @@
                                         {% endfor %}
                                     </div>
                                 {% endif %}
-                                {% if loop.last and 'options' in message %}
+                                {% if loop.last and 'options' in message and message['options'] | length > 0 %}
                                     <div class="question-options list box p-0">
                                         {% for s in message['options'] %}
                                             <div class="list-item pl-5">
@@ -59,11 +59,11 @@
                 </div>
                 <form class="chat-input pb-3" action="{{ url_for('index') }}" method="post"
                       style="padding-left: 12px; padding-right: 12px;"
-                      up-submit up-target=".chat-history" up-scroll="auto">
+                      up-submit up-target=".chat-history, .navbar-username #userInput">
                     <div class="field has-addons">
                         <p class="control w-100">
                             <label for="userInput"></label>
-                            <input class="input" id="userInput" name="input" type="text">
+                            <input class="input" id="userInput" name="input" type="text" autofocus>
                         </p>
                         <p class="control">
                             <button class="button" type="submit">
