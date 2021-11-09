@@ -9,7 +9,7 @@
                         <div class="columns {% if message['author'] == 'user' %}is-justify-content-end{% endif %}">
                             <div class="column is-two-thirds mx-3">
                                 {% if 'text' in message %}
-                                    <div class="box mb-0">
+                                    <div class="box mb-0 {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
                                         <p>{{ message['text'] }}</p>
                                     </div>
                                 {% endif %}
