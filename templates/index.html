@@ -4,17 +4,17 @@
     <section class="hero is-fullheight-with-navbar has-background-white-bis">
         <div class="hero-body p-0">
             <div class="container is-max-desktop has-background-white-ter">
-                <div id="chatHistory" class="chat-history py-3">
+                <div id="chatHistory" class="chat-history py-3 p-0 m-0">
                     {% for message in history %}
-                        <div class="columns {% if message['author'] == 'user' %}is-justify-content-end{% endif %}">
-                            <div class="column is-two-thirds mx-3">
+                        <div class="columns m-0 {% if message['author'] == 'user' %}is-justify-content-end{% endif %}">
+                            <div class="column is-two-thirds mx-3 mt-3 p-0">
                                 {% if 'text' in message %}
                                     <div class="box mb-0 {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
                                         <p>{{ message['text'] }}</p>
                                     </div>
                                 {% endif %}
                                 {% if message['type'].lower() == 'answer' and 'options' in message and message['options'] | length > 0 %}
-                                    <div class="list box p-0">
+                                    <div class="list box p-0 mt-3">
                                         {% for item in message['options'] %}
                                             {% if (item['is_answer'] | default(False)) and item['is_correct'] %}
                                                 {% set style_class = 'has-background-success-light' %}
@@ -36,15 +36,15 @@
                                         {% endfor %}
                                     </div>
                                 {% endif %}
-                                {% if loop.last and 'suggestions' in message %}
-                                    <div class="buttons">
+                                {% if loop.last and 'suggestions' in message and message['suggestions'] | length > 0 %}
+                                    <div class="buttons mt-3">
                                         {% for s in message['suggestions'] %}
                                             <button class="button is-link is-rounded">{{ s }}</button>
                                         {% endfor %}
                                     </div>
                                 {% endif %}
                                 {% if loop.last and 'options' in message and message['options'] | length > 0 %}
-                                    <div class="question-options list box p-0">
+                                    <div class="list box p-0 mt-3 question-options">
                                         {% for s in message['options'] %}
                                             <div class="list-item pl-5">
                                                 <div class="list-item-image">{{ s['key'] }}</div>
@@ -59,7 +59,8 @@
                 </div>
                 <form class="chat-input pb-3" action="{{ url_for('index') }}" method="post"
                       style="padding-left: 12px; padding-right: 12px;"
-                      up-submit up-target=".chat-history, .navbar-username #userInput">
+                      up-submit
+                      up-target=".chat-history, .navbar-username #userInput">
                     <div class="field has-addons">
                         <p class="control w-100">
                             <label for="userInput"></label>

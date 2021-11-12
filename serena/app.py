@@ -25,9 +25,9 @@ def index():
     history = state['__meta__']['history']
     input = None
     if request.method == 'POST':
-        input = request.form.get('input', None)
-        if input is not None and len(input.strip()) != 0:
-            input = chat.message(input, author='user')
+        input_text = request.form.get('input', None)
+        if input_text is not None and len(input_text.strip()) != 0:
+            input = chat.message(input_text, author='user')
             history.append(input)
     elif len(history) == 0:
         input = chat.message(None, author='user')
