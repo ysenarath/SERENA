@@ -9,8 +9,20 @@
                         <div class="columns m-0 {% if message['author'] == 'user' %}is-justify-content-end{% endif %}">
                             <div class="column is-two-thirds mx-3 mt-3 p-0">
                                 {% if 'text' in message %}
-                                    <div class="box mb-0 {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
-                                        <p>{{ message['text'] }}</p>
+                                    <div class="box mb-0 is-flex is-flex-direction-row {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
+                                        {% if message['author'] != 'user' %}
+                                            <div class="is-flex is-flex-direction-column has-text-centered">
+                                                <span class="icon is-medium"><i class="fas fa-lg fa-robot has-text-centered"></i></span>
+                                                <p class="is-size-7">SERENA</p>
+                                            </div>
+                                        {% endif %}
+                                        <p class="w-100">{{ message['text'] }}</p>
+                                        {% if message['author'] == 'user' %}
+                                            <div class="is-flex is-flex-direction-column has-text-centered">
+                                                <span class="icon is-medium"><i class="fas fa-lg fa-user"></i></span>
+                                                <p class="is-size-7">{{ state['username'] | default('GUEST') | upper }}</p>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 {% endif %}
                                 {% if message['type'].lower() == 'answer' and 'options' in message and message['options'] | length > 0 %}
