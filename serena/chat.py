@@ -1,15 +1,8 @@
 import enum
 import random
 
-import stanza
-
+import serena.nlp
 from serena import db
-
-try:
-    nlp = stanza.Pipeline(lang='en', processors='tokenize,ner')
-except OSError as _:
-    stanza.download('en', processors='tokenize,pos')
-    nlp = stanza.Pipeline(lang='en', processors='tokenize,ner')
 
 
 def message(text, author='bot', suggestions=None, options=None, type='default'):
@@ -72,10 +65,9 @@ def get_answer_index(text, options):
 
 
 def get_username(input_text, username):
-    doc = nlp(input_text)
-    for ent in doc.entities:
-        if ent.type == 'PERSON':
-            username = ent.text
+    names_in_text = serena.nlp.get_names(input_text)
+    if names_in_text is not None and len(names_in_text) > 0:
+        username = names_in_text[0]
     return username
 
 
