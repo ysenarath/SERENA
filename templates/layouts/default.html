@@ -19,10 +19,9 @@
 <body>
 {% include "_navbar.html" ignore missing %}
 {% block body %}{% endblock %}
-{% include "_footer.html" ignore missing %}
 {% block scripts %}
     <script src="{{ url_for('static', filename='assets/js/base.js') }}"></script>
-    <script src="{{ url_for('static', filename='assets/js/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/bulma.js') }}"></script>
     <script src="{{ url_for('static', filename='packages/simplebar/simplebar.min.js') }}"></script>
 {% endblock %}
 </body>

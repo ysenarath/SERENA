@@ -1,5 +1,107 @@
 {% extends 'layouts/default.html' %}
 
+{% macro render_default(message, loop) %}
+    {% if 'text' in message %}
+        <div class="box p-4 mb-0 is-flex is-flex-direction-row is-align-items-center
+            {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
+            {% if message['author'] != 'user' %}
+                <div class="is-flex is-flex-direction-column is-align-items-center mr-3">
+                    <span class="icon is-medium"><i class="fas fa-lg fa-robot has-text-centered"></i></span>
+                    <p class="is-size-7">SERENA</p>
+                </div>
+            {% endif %}
+            <p class="w-100">{{ message['text'] }}</p>
+            {% if message['author'] == 'user' %}
+                <div class="is-flex is-flex-direction-column is-align-items-center ml-3">
+                    <span class="icon is-medium"><i class="fas fa-lg fa-user"></i></span>
+                    <p class="is-size-7">{{ state['username'] | default('GUEST') | upper }}</p>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% if message['type'].lower() == 'answer' and 'options' in message and message['options'] | length > 0 %}
+        <div class="list box p-0 mt-3">
+            {% for item in message['options'] %}
+                {% if (item['is_answer'] | default(False)) and item['is_correct'] %}
+                    {% set style_class = 'has-background-success-light' %}
+                    {% set message_text = 'Your answer is correct.' %}
+                {% elif item['is_answer'] | default(False) %}
+                    {% set style_class = 'has-background-danger-light' %}
+                    {% set message_text = 'This was your answer.' %}
+                {% elif item['is_correct'] %}
+                    {% set style_class = 'has-background-success-light' %}
+                    {% set message_text = 'This is the correct answer.' %}
+                {% endif %}
+                <div class="list-item pl-5 {{ style_class | default('') }}">
+                    <div class="list-item-image">{{ item['key'] }}</div>
+                    <div class="list-item-content">
+                        <div class="list-item-title">{{ item['option'] }}</div>
+                        <div class="list-item-description">{{ message_text }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if loop.last and 'suggestions' in message and message['suggestions'] | length > 0 %}
+        <div class="buttons mt-3">
+            {% for s in message['suggestions'] %}
+                <button class="button is-link is-rounded">{{ s }}</button>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% if loop.last and 'options' in message and message['options'] | length > 0 %}
+        <div class="list box p-0 mt-3 question-options">
+            {% for s in message['options'] %}
+                <div class="list-item pl-5">
+                    <div class="list-item-image">{{ s['key'] }}</div>
+                    <div class="list-item-title">{{ s['option'] }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro render_report(message, loop) %}
+    {% set report = message['report'] %}
+    <div class="box p-4 mb-0 is-flex is-flex-direction-row {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
+        {% if message['author'] != 'user' %}
+            <div class="is-flex is-flex-direction-column has-text-centered">
+                <span class="icon is-medium"><i class="fas fa-lg fa-robot has-text-centered"></i></span>
+                <p class="is-size-7">SERENA</p>
+            </div>
+            <div class="pl-3">
+                <h1 class="title">{{ message['report']['title'] }}</h1>
+                <h2 class="subtitle">{{ message['report']['subtitle'] }}</h2>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro render_extended_report(message, loop) %}
+    {% set report = message['report'] %}
+    <div class="box p-4 mb-0 is-flex is-flex-direction-row {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
+        {% if message['author'] != 'user' %}
+            <div class="is-flex is-flex-direction-column has-text-centered">
+                <span class="icon is-medium"><i class="fas fa-lg fa-robot has-text-centered"></i></span>
+                <p class="is-size-7">SERENA</p>
+            </div>
+            <div class="pl-3">
+                <h1 class="title">{{ message['report']['title'] }}</h1>
+                <h2 class="subtitle">{{ message['report']['subtitle'] }}</h2>
+                <div>
+                    {% for question in message['report']['questions'] %}
+                        <p>{{ question['question'] }}</p>
+                        <div class="pb-3">
+                            <p class="pb-1">Your Answer: {{ question['correct_answer'] }}</p>
+                            <p class="pb-1">Correct Answer: {{ question['selected_answer'] }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
 {% block body %}
     <section class="hero is-fullheight-with-navbar has-background-white-bis">
         <div class="hero-body p-0">
@@ -8,62 +110,12 @@
                     {% for message in history %}
                         <div class="columns m-0 {% if message['author'] == 'user' %}is-justify-content-end{% endif %}">
                             <div class="column is-two-thirds mx-3 mt-3 p-0">
-                                {% if 'text' in message %}
-                                    <div class="box mb-0 is-flex is-flex-direction-row {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
-                                        {% if message['author'] != 'user' %}
-                                            <div class="is-flex is-flex-direction-column has-text-centered">
-                                                <span class="icon is-medium"><i class="fas fa-lg fa-robot has-text-centered"></i></span>
-                                                <p class="is-size-7">SERENA</p>
-                                            </div>
-                                        {% endif %}
-                                        <p class="w-100">{{ message['text'] }}</p>
-                                        {% if message['author'] == 'user' %}
-                                            <div class="is-flex is-flex-direction-column has-text-centered">
-                                                <span class="icon is-medium"><i class="fas fa-lg fa-user"></i></span>
-                                                <p class="is-size-7">{{ state['username'] | default('GUEST') | upper }}</p>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                {% endif %}
-                                {% if message['type'].lower() == 'answer' and 'options' in message and message['options'] | length > 0 %}
-                                    <div class="list box p-0 mt-3">
-                                        {% for item in message['options'] %}
-                                            {% if (item['is_answer'] | default(False)) and item['is_correct'] %}
-                                                {% set style_class = 'has-background-success-light' %}
-                                                {% set message_text = 'Your answer is correct.' %}
-                                            {% elif item['is_answer'] | default(False) %}
-                                                {% set style_class = 'has-background-danger-light' %}
-                                                {% set message_text = 'This was your answer.' %}
-                                            {% elif item['is_correct'] %}
-                                                {% set style_class = 'has-background-success-light' %}
-                                                {% set message_text = 'This is the correct answer.' %}
-                                            {% endif %}
-                                            <div class="list-item pl-5 {{ style_class | default('') }}">
-                                                <div class="list-item-image">{{ item['key'] }}</div>
-                                                <div class="list-item-content">
-                                                    <div class="list-item-title">{{ item['option'] }}</div>
-                                                    <div class="list-item-description">{{ message_text }}</div>
-                                                </div>
-                                            </div>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                                {% if loop.last and 'suggestions' in message and message['suggestions'] | length > 0 %}
-                                    <div class="buttons mt-3">
-                                        {% for s in message['suggestions'] %}
-                                            <button class="button is-link is-rounded">{{ s }}</button>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                                {% if loop.last and 'options' in message and message['options'] | length > 0 %}
-                                    <div class="list box p-0 mt-3 question-options">
-                                        {% for s in message['options'] %}
-                                            <div class="list-item pl-5">
-                                                <div class="list-item-image">{{ s['key'] }}</div>
-                                                <div class="list-item-title">{{ s['option'] }}</div>
-                                            </div>
-                                        {% endfor %}
-                                    </div>
+                                {% if message['type'] in ['default', 'answer'] %}
+                                    {{ render_default(message, loop) }}
+                                {% elif message['type'] == 'report' %}
+                                    {{ render_report(message, loop) }}
+                                {% elif message['type'] == 'extended_report' %}
+                                    {{ render_extended_report(message, loop) }}
                                 {% endif %}
                             </div>
                         </div>
@@ -71,8 +123,7 @@
                 </div>
                 <form class="chat-input pb-3" action="{{ url_for('index') }}" method="post"
                       style="padding-left: 12px; padding-right: 12px;"
-                      up-submit
-                      up-target=".chat-history, .navbar-username #userInput">
+                      up-submit up-target=".chat-history, .navbar-username #userInput">
                     <div class="field has-addons">
                         <p class="control w-100">
                             <label for="userInput"></label>
@@ -88,6 +139,7 @@
             </div>
         </div>
     </section>
+    {% include "help.html" ignore missing %}
 {% endblock %}
 
 {% block scripts %}
