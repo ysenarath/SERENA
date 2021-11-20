@@ -1,11 +1,42 @@
 import enum
 import random
 
-import serena.nlp
+import nltk
+
 from serena import db
 
+nltk.download('averaged_perceptron_tagger')
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
 
-def message(text, author='bot', suggestions=None, options=None, type='default'):
+
+def get_names(text):
+    chunked = nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(text)))
+    continuous_chunk = []
+    current_chunk = []
+    current_chunk_label = None
+    for i in chunked:
+        if type(i) == nltk.tree.Tree:
+            if current_chunk_label is None:
+                current_chunk_label = i.label()
+            if current_chunk_label == 'PERSON':
+                current_chunk.append(' '.join([token for token, pos in i.leaves()]))
+        elif current_chunk:
+            named_entity = ' '.join(current_chunk)
+            if named_entity not in continuous_chunk:
+                continuous_chunk.append(named_entity)
+                current_chunk = []
+                current_chunk_label = None
+        else:
+            continue
+    if current_chunk:
+        named_entity = ' '.join(current_chunk)
+        if named_entity not in continuous_chunk:
+            continuous_chunk.append(named_entity)
+    return continuous_chunk
+
+
+def message(text=None, author='bot', suggestions=None, options=None, report=None, type='default'):
     if suggestions is None:
         suggestions = []
     if options is None:
@@ -18,6 +49,7 @@ def message(text, author='bot', suggestions=None, options=None, type='default'):
         'author': author,
         'suggestions': suggestions,
         'options': options,
+        'report': report,
         'type': type_of_message,
     }
 
@@ -64,13 +96,6 @@ def get_answer_index(text, options):
     return answer_index
 
 
-def get_username(input_text, username):
-    names_in_text = serena.nlp.get_names(input_text)
-    if names_in_text is not None and len(names_in_text) > 0:
-        username = names_in_text[0]
-    return username
-
-
 def get_is_true(input_text):
     if input_text.lower() in ['yes', 'y', 'true', 'yeah', 'please']:
         return True
@@ -79,17 +104,25 @@ def get_is_true(input_text):
     return None
 
 
+def get_username(input_text, username):
+    names_in_text = get_names(input_text)
+    if names_in_text is not None and len(names_in_text) > 0:
+        username = names_in_text[0]
+    return username
+
+
 def process_input(input, state):
     input_text = input.get('text', None)
     state_value = state.get('value', StateValue.START)
     username = state.get('username', None)
     current_test = state.get('current_test', None)
+    current_report = state.get('current_report', None)
     output = []
     if state_value == StateValue.START:
         if username is None:
             output += [
                 message(text='Welcome! I’m Serena, here to help you to prepare for exams.'),
-                message(text='What is your name?')
+                message(text='What is your name?', suggestions=['Skip'])
             ]
             state_value = StateValue.ASK_NAME
         else:
@@ -101,20 +134,28 @@ def process_input(input, state):
             ]
             state_value = StateValue.ASK_TEST_TYPE
     elif state_value == StateValue.ASK_NAME:
-        username = get_username(input_text, username)
-        if username is None:
+        if 'skip' in input_text.lower():
             output += [
-                message(text='Sorry, I didn\'t catch your name.'),
-                message(text='Could you please enter your name again?'),
-            ]
-        else:
-            output += [
-                message(text='Nice to meet you {}'.format(username)),
                 message(text='Which subject do you want to learn today?', suggestions=[
                     'Algorithms', 'Cybersecurity', 'Database', 'Networking',
                 ]),
             ]
             state_value = StateValue.ASK_TEST_TYPE
+        else:
+            username = get_username(input_text, username)
+            if username is None:
+                output += [
+                    message(text='Sorry, I didn\'t catch your name.'),
+                    message(text='Could you please enter your name again?'),
+                ]
+            else:
+                output += [
+                    message(text='Nice to meet you {}'.format(username)),
+                    message(text='Which subject do you want to learn today?', suggestions=[
+                        'Algorithms', 'Cybersecurity', 'Database', 'Networking',
+                    ]),
+                ]
+                state_value = StateValue.ASK_TEST_TYPE
     elif state_value == StateValue.ASK_TEST_TYPE:
         test_type = get_test_type(input_text)
         if test_type is None:
@@ -163,9 +204,42 @@ def process_input(input, state):
                     ]
                     state_value = StateValue.ASK_QUESTION
                 else:
+                    score = 0
+                    questions = []
+                    for question in current_test['questions']:
+                        correct_answer = None
+                        selected_answer = None
+                        is_correct = False
+                        for option in question['options']:
+                            if 'is_answer' in option and option['is_answer']:
+                                selected_answer = option['option']
+                            if option['is_correct'] and 'is_answer' in option and option['is_answer']:
+                                is_correct = True
+                                correct_answer = option['option']
+                        if is_correct:
+                            score += 1
+                        questions.append({
+                            'question': question['question'],
+                            'correct_answer': correct_answer,
+                            'selected_answer': selected_answer,
+                        })
+                    current_report = {'score': score, 'questions': questions}
+                    if len(current_report['questions']) != 0:
+                        current_report['percentage'] = current_report['score'] * 100 / len(current_report['questions'])
+                    else:
+                        current_report['percentage'] = 0
+                    if current_report['percentage'] >= 80:
+                        title = 'Congratulations 🎉'
+                    elif current_report['percentage'] >= 40:
+                        title = 'Good Work!'
+                    else:
+                        title = 'Let\'s try again!'
+                    current_report['title'] = title
+                    subtitle = 'Your score is {}.'.format(score)
+                    current_report['subtitle'] = subtitle
                     output += [
                         # show minimal report and ask if she wants to continue
-                        message(text='You completed the test successfully! more...'),
+                        message(report=current_report, type='report'),
                         message(text='Do you want to review?', suggestions=['Yes', 'No']),
                     ]
                     current_test = None
@@ -187,8 +261,9 @@ def process_input(input, state):
         if 'more' in input_text or get_is_true(input_text):
             output += [
                 # show extended report and ask again if she wants to continue
-                message(text='You completed the test successfully! ext...')
+                message(report=current_report, type='extended_report'),
             ]
+            current_report = None
         output += [
             # ask if she wants to continue
             message(text='Do you want to select another test?', suggestions=['Yes', 'No'])
@@ -216,4 +291,5 @@ def process_input(input, state):
     state['value'] = state_value
     state['username'] = username
     state['current_test'] = current_test
+    state['current_report'] = current_report
     return output, state
