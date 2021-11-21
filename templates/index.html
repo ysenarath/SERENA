@@ -23,13 +23,13 @@
         <div class="list box p-0 mt-3 mr-5">
             {% for item in message['options'] %}
                 {% if (item['is_answer'] | default(False)) and item['is_correct'] %}
-                    {% set style_class = 'has-background-success-light' %}
+                    {% set style_class = 'has-background-info-light' %}
                     {% set message_text = 'Your answer is correct.' %}
                 {% elif item['is_answer'] | default(False) %}
                     {% set style_class = 'has-background-danger-light' %}
                     {% set message_text = 'This was your answer.' %}
                 {% elif item['is_correct'] %}
-                    {% set style_class = 'has-background-success-light' %}
+                    {% set style_class = 'has-background-info-light' %}
                     {% set message_text = 'This is the correct answer.' %}
                 {% endif %}
                 <div class="list-item pl-5 {{ style_class | default('') }}">
