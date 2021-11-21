@@ -45,14 +45,14 @@
     {% if loop.last and 'suggestions' in message and message['suggestions'] | length > 0 %}
         <div class="buttons mt-3 mr-5">
             {% for s in message['suggestions'] %}
-                <button class="button is-link is-rounded">{{ s }}</button>
+                <button class="button is-link is-rounded submit-button">{{ s }}</button>
             {% endfor %}
         </div>
     {% endif %}
     {% if loop.last and 'options' in message and message['options'] | length > 0 %}
         <div class="list box p-0 mt-3 mr-5 question-options">
             {% for s in message['options'] %}
-                <div class="list-item pl-5">
+                <div class="list-item pl-5 submit-button">
                     <div class="list-item-image">{{ s['key'] }}</div>
                     <div class="list-item-title">{{ s['option'] }}</div>
                 </div>
@@ -157,6 +157,13 @@
                 scrollElement.scrollTop = scrollElement.scrollHeight;
             }
         });
+
+        up.compiler('.submit-button', function (element) {
+            element.addEventListener('click', () => {
+                document.getElementById('userInput').value = element.textContent;
+                up.submit('form.chat-input', {target: '.chat-history, .navbar-username, #userInput'})
+            });
+        })
     </script>
 {% endblock %}
 

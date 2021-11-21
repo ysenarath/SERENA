@@ -89,7 +89,7 @@ def get_answer_index(text, options):
     answer_index = None
     options = {o['key']: i for i, o in enumerate(options)}
     try:
-        answer_key = int(text)
+        answer_key = int(text.split()[0])
         if answer_key in options:
             answer_index = options[answer_key]
     except ValueError as e:
