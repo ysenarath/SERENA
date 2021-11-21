@@ -12,6 +12,8 @@ nltk.download('punkt')
 
 
 def get_names(text):
+    if ' ' not in text:
+        return [text]
     chunked = nltk.ne_chunk(nltk.pos_tag(nltk.word_tokenize(text)))
     continuous_chunk = []
     current_chunk = []
