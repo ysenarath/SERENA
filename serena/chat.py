@@ -8,6 +8,7 @@ from serena import db
 nltk.download('averaged_perceptron_tagger')
 nltk.download('maxent_ne_chunker')
 nltk.download('words')
+nltk.download('punkt')
 
 
 def get_names(text):
