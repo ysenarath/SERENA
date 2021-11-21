@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/base.css') }}">
 </head>
 <body>
-{% include "_navbar.html" ignore missing %}
+{% include "navbar.html" ignore missing %}
 {% block body %}{% endblock %}
 {% block scripts %}
     <script src="{{ url_for('static', filename='assets/js/base.js') }}"></script>

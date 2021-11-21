@@ -135,6 +135,7 @@ def process_input(input, state):
             state_value = StateValue.ASK_TEST_TYPE
     elif state_value == StateValue.ASK_NAME:
         if 'skip' in input_text.lower():
+            username = 'Guest'
             output += [
                 message(text='Which subject do you want to learn today?', suggestions=[
                     'Algorithms', 'Cybersecurity', 'Database', 'Networking',

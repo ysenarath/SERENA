@@ -1,9 +1,9 @@
-{% extends 'layouts/default.html' %}
+{% extends 'layout.html' %}
 
 {% macro render_default(message, loop) %}
     {% if 'text' in message %}
         <div class="box p-4 mb-0 is-flex is-flex-direction-row is-align-items-center
-            {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
+            {% if message['author'] == 'user' %}has-background-link-light ml-5{% else %}mr-5{% endif %}">
             {% if message['author'] != 'user' %}
                 <div class="is-flex is-flex-direction-column is-align-items-center mr-3">
                     <span class="icon is-medium"><i class="fas fa-lg fa-robot has-text-centered"></i></span>
@@ -20,7 +20,7 @@
         </div>
     {% endif %}
     {% if message['type'].lower() == 'answer' and 'options' in message and message['options'] | length > 0 %}
-        <div class="list box p-0 mt-3">
+        <div class="list box p-0 mt-3 mr-5">
             {% for item in message['options'] %}
                 {% if (item['is_answer'] | default(False)) and item['is_correct'] %}
                     {% set style_class = 'has-background-success-light' %}
@@ -43,14 +43,14 @@
         </div>
     {% endif %}
     {% if loop.last and 'suggestions' in message and message['suggestions'] | length > 0 %}
-        <div class="buttons mt-3">
+        <div class="buttons mt-3 mr-5">
             {% for s in message['suggestions'] %}
                 <button class="button is-link is-rounded">{{ s }}</button>
             {% endfor %}
         </div>
     {% endif %}
     {% if loop.last and 'options' in message and message['options'] | length > 0 %}
-        <div class="list box p-0 mt-3 question-options">
+        <div class="list box p-0 mt-3 mr-5 question-options">
             {% for s in message['options'] %}
                 <div class="list-item pl-5">
                     <div class="list-item-image">{{ s['key'] }}</div>
@@ -62,9 +62,9 @@
 {% endmacro %}
 
 {% macro render_report(message, loop) %}
-    {% set report = message['report'] %}
-    <div class="box p-4 mb-0 is-flex is-flex-direction-row {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
-        {% if message['author'] != 'user' %}
+    {% if message['author'] != 'user' %}
+        {% set report = message['report'] %}
+        <div class="box p-4 mb-0 mr-5 is-flex is-flex-direction-row">
             <div class="is-flex is-flex-direction-column has-text-centered">
                 <span class="icon is-medium"><i class="fas fa-lg fa-robot has-text-centered"></i></span>
                 <p class="is-size-7">SERENA</p>
@@ -73,14 +73,14 @@
                 <h1 class="title">{{ message['report']['title'] }}</h1>
                 <h2 class="subtitle">{{ message['report']['subtitle'] }}</h2>
             </div>
-        {% endif %}
-    </div>
+        </div>
+    {% endif %}
 {% endmacro %}
 
 {% macro render_extended_report(message, loop) %}
-    {% set report = message['report'] %}
-    <div class="box p-4 mb-0 is-flex is-flex-direction-row {% if message['author'] == 'user' %}has-background-link-light{% endif %}">
-        {% if message['author'] != 'user' %}
+    {% if message['author'] != 'user' %}
+        {% set report = message['report'] %}
+        <div class="box p-4 mb-0 mr-5 is-flex is-flex-direction-row">
             <div class="is-flex is-flex-direction-column has-text-centered">
                 <span class="icon is-medium"><i class="fas fa-lg fa-robot has-text-centered"></i></span>
                 <p class="is-size-7">SERENA</p>
@@ -98,48 +98,53 @@
                     {% endfor %}
                 </div>
             </div>
-        {% endif %}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro render_chat_input() %}
+    <form class="chat-input pb-3" action="{{ url_for('index') }}" method="post"
+          style="padding-left: 12px; padding-right: 12px;"
+          up-submit up-target=".chat-history, .navbar-username #userInput">
+        <div class="field has-addons">
+            <p class="control w-100">
+                <label for="userInput"></label>
+                <input class="input" id="userInput" name="input" type="text" autofocus>
+            </p>
+            <p class="control">
+                <button class="button" type="submit">
+                    <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                </button>
+            </p>
+        </div>
+    </form>
+{% endmacro %}
+
+{% macro render_chat_history() %}
+    <div id="chatHistory" class="chat-history py-3 p-0 m-0">
+        {% for message in history %}
+            <div class="columns m-0 {% if message['author'] == 'user' %}is-justify-content-end{% endif %}">
+                <div class="column is-two-thirds mx-3 mt-3 p-0">
+                    {% if message['type'] in ['default', 'answer'] %}
+                        {{ render_default(message, loop) }}
+                    {% elif message['type'] == 'report' %}
+                        {{ render_report(message, loop) }}
+                    {% elif message['type'] == 'extended_report' %}
+                        {{ render_extended_report(message, loop) }}
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endmacro %}
 
 {% block body %}
-    <section class="hero is-fullheight-with-navbar has-background-white-bis">
-        <div class="hero-body p-0">
-            <div class="container is-max-desktop has-background-white-ter">
-                <div id="chatHistory" class="chat-history py-3 p-0 m-0">
-                    {% for message in history %}
-                        <div class="columns m-0 {% if message['author'] == 'user' %}is-justify-content-end{% endif %}">
-                            <div class="column is-two-thirds mx-3 mt-3 p-0">
-                                {% if message['type'] in ['default', 'answer'] %}
-                                    {{ render_default(message, loop) }}
-                                {% elif message['type'] == 'report' %}
-                                    {{ render_report(message, loop) }}
-                                {% elif message['type'] == 'extended_report' %}
-                                    {{ render_extended_report(message, loop) }}
-                                {% endif %}
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-                <form class="chat-input pb-3" action="{{ url_for('index') }}" method="post"
-                      style="padding-left: 12px; padding-right: 12px;"
-                      up-submit up-target=".chat-history, .navbar-username #userInput">
-                    <div class="field has-addons">
-                        <p class="control w-100">
-                            <label for="userInput"></label>
-                            <input class="input" id="userInput" name="input" type="text" autofocus>
-                        </p>
-                        <p class="control">
-                            <button class="button" type="submit">
-                                <span class="icon"><i class="fas fa-paper-plane"></i></span>
-                            </button>
-                        </p>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
     {% include "help.html" ignore missing %}
+    <section class="container is-max-desktop is-fullheight-with-navbar has-background-white-bis
+     is-flex is-flex-direction-column is-justify-content-end">
+        {{ render_chat_history() }}
+        {{ render_chat_input() }}
+    </section>
 {% endblock %}
 
 {% block scripts %}
