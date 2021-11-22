@@ -88,15 +88,28 @@
             <div class="pl-3">
                 <h1 class="title">{{ message['report']['title'] }}</h1>
                 <h2 class="subtitle">{{ message['report']['subtitle'] }}</h2>
-                <div>
+                <ol>
                     {% for question in message['report']['questions'] %}
-                        <p>{{ question['question'] }}</p>
-                        <div class="pb-3">
-                            <p class="pb-1">Your Answer: {{ question['correct_answer'] }}</p>
-                            <p class="pb-1">Correct Answer: {{ question['selected_answer'] }}</p>
-                        </div>
+                        <li class="pb-3 mb-3">{{ question['question'] }}
+                            <div class="columns pt-3 ml-3 mt-1">
+                                <div class="column is-3 p-0">
+                                    <p>Your Answer</p>
+                                </div>
+                                <div class="column p-0">
+                                    <p>{{ question['correct_answer'] }}</p>
+                                </div>
+                            </div>
+                            <div class="columns pt-3 ml-3">
+                                <div class="column is-3 p-0">
+                                    <p>Correct Answer</p>
+                                </div>
+                                <div class="column p-0">
+                                    <p>{{ question['selected_answer'] }}</p>
+                                </div>
+                            </div>
+                        </li>
                     {% endfor %}
-                </div>
+                </ol>
             </div>
         </div>
     {% endif %}

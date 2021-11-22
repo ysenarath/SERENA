@@ -114,6 +114,43 @@ def get_username(input_text, username):
     return username
 
 
+def build_report(test):
+    score = 0
+    questions = []
+    for question in test['questions']:
+        correct_answer = None
+        selected_answer = None
+        is_correct = False
+        for option in question['options']:
+            if ('is_answer' in option) and option['is_answer']:
+                selected_answer = option['option']
+            if option['is_correct']:
+                correct_answer = option['option']
+            if option['is_correct'] and 'is_answer' in option and option['is_answer']:
+                is_correct = True
+        if is_correct:
+            score += 1
+        questions.append({
+            'question': question['question'],
+            'correct_answer': correct_answer,
+            'selected_answer': selected_answer,
+        })
+    report = {'score': score, 'questions': questions}
+    if len(report['questions']) != 0:
+        report['percentage'] = report['score'] * 100 / len(report['questions'])
+    else:
+        report['percentage'] = 0
+    if report['percentage'] >= 80:
+        title = 'Congratulations 🎉'
+    elif report['percentage'] >= 40:
+        title = 'Good Work!'
+    else:
+        title = 'Let\'s try again!'
+    report['title'] = title
+    report['subtitle'] = 'Your score is {}.'.format(score)
+    return report
+
+
 def process_input(input, state):
     input_text = input.get('text', None)
     state_value = state.get('value', StateValue.START)
@@ -208,39 +245,7 @@ def process_input(input, state):
                     ]
                     state_value = StateValue.ASK_QUESTION
                 else:
-                    score = 0
-                    questions = []
-                    for question in current_test['questions']:
-                        correct_answer = None
-                        selected_answer = None
-                        is_correct = False
-                        for option in question['options']:
-                            if 'is_answer' in option and option['is_answer']:
-                                selected_answer = option['option']
-                            if option['is_correct'] and 'is_answer' in option and option['is_answer']:
-                                is_correct = True
-                                correct_answer = option['option']
-                        if is_correct:
-                            score += 1
-                        questions.append({
-                            'question': question['question'],
-                            'correct_answer': correct_answer,
-                            'selected_answer': selected_answer,
-                        })
-                    current_report = {'score': score, 'questions': questions}
-                    if len(current_report['questions']) != 0:
-                        current_report['percentage'] = current_report['score'] * 100 / len(current_report['questions'])
-                    else:
-                        current_report['percentage'] = 0
-                    if current_report['percentage'] >= 80:
-                        title = 'Congratulations 🎉'
-                    elif current_report['percentage'] >= 40:
-                        title = 'Good Work!'
-                    else:
-                        title = 'Let\'s try again!'
-                    current_report['title'] = title
-                    subtitle = 'Your score is {}.'.format(score)
-                    current_report['subtitle'] = subtitle
+                    current_report = build_report(test=current_test)
                     output += [
                         # show minimal report and ask if she wants to continue
                         message(report=current_report, type='report'),
