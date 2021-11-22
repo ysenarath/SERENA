@@ -1,4 +1,8 @@
 document.addEventListener('keypress', (e) => {
+    let modal = document.querySelector('.modal');  // assuming you have only 1
+    let html = document.querySelector('html');
+    modal.classList.remove('is-active');
+    html.classList.remove('is-clipped');
     document.getElementById('userInput').focus();
 });
 

@@ -158,6 +158,9 @@ def process_input(input, state):
     current_test = state.get('current_test', None)
     current_report = state.get('current_report', None)
     output = []
+    # if input.strip().lower() in ['show help', 'help me', 'help']:
+    #     state['show_help'] = True
+    #     return output, state
     if state_value == StateValue.START:
         if username is None:
             output += [
