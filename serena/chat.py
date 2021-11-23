@@ -162,7 +162,7 @@ def process_input(input, state):
     #     state['show_help'] = True
     #     return output, state
     if state_value == StateValue.START:
-        if username is None:
+        if username is None or username.strip().lower() == 'guest':
             output += [
                 message(text='Welcome! I’m Serena, here to help you to prepare for exams.'),
                 message(text='What is your name?', suggestions=['Skip'])
@@ -295,7 +295,7 @@ def process_input(input, state):
                 output += [
                     message(text='Thank you, please come back again!'),
                 ]
-                state_value = StateValue.ASK_NAME
+                state_value = StateValue.START
         else:
             output += [
                 message(text='Sorry, can you please repeat, I did not understand?', suggestions=['Yes', 'No']),
